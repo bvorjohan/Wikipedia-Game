@@ -1,8 +1,7 @@
 # import tensorflow as tf
 import numpy as np
-
 from sklearn.feature_extraction.text import TfidfVectorizer
-
+# input("Press Enter to continue...")
 
 def evaluate_recall(y, y_test, k=1):
     num_examples = float(len(y))
