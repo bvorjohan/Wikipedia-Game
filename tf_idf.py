@@ -4,6 +4,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 # input("Press Enter to continue...")
 
 def evaluate_recall(y, y_test, k=1):
+    pass
     num_examples = float(len(y))
     num_correct = 0
     for predictions, label in zip(y, y_test):
@@ -13,14 +14,16 @@ def evaluate_recall(y, y_test, k=1):
 
 # Random Predictor
 def predict_random(context, utterances):
+    pass
     return np.random.choice(len(utterances), 10, replace=False)
 
 # Evaluate Random predictor
+'''
 y_random = [predict_random(test_df.Context[x], test_df.iloc[x,1:].values) for x in range(len(test_df))]
 y_test = np.zeros(len(y_random))
 for n in [1, 2, 5, 10]:
     print("Recall @ ({}, 10): {:g}".format(n, evaluate_recall(y_random, y_test, n)))
-
+'''
 
 
 
@@ -43,12 +46,13 @@ class TFIDFPredictor:
 
 
 # Evaluate TFIDF predictor
+'''
 pred = TFIDFPredictor()
 pred.train(train_df)
 y = [pred.predict(test_df.Context[x], test_df.iloc[x,1:].values) for x in range(len(test_df))]
 for n in [1, 2, 5, 10]:
     print("Recall @ ({}, 10): {:g}".format(n, evaluate_recall(y, y_test, n)))
-
+'''
 
 
 

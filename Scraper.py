@@ -4,6 +4,8 @@ import urllib.request
 # import tkinter as tk
 # from tkinter.simpledialog import askstring, askinteger
 # from tkinter.messagebox import showerror
+import string
+from unidecode import unidecode
 
 '''
 # it looks like having a dialog box is a lot of work; for future reference:
@@ -54,7 +56,20 @@ def get_text(page):
                     new_text = new_text[:length-i-1] + new_text[length-i+j:]
                     break
 
-    return new_text
+
+    rtn = unidecode(new_text)
+    '''
+    rtn = ""
+    new_text = new_text.replace("\u2013", "-")
+    new_text = new_text.replace("\u2014", "--")
+
+    for char in new_text:
+        if char in string.printable:
+            rtn += char
+    '''
+
+
+    return rtn
 
 
 
